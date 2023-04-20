@@ -11,24 +11,51 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to 'Home', user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
-    </header>
+  <body class="d-flex flex-column vh-100">
+    <header class="bg-dark text-white pt-5 pb-4">
+      <nav class="navber navber-expand-lg navber-light">
+        <div class="container">
+          <a class="navber-brand p-3" href="/">Bookers</a>
+          <button class="navber-toggler" type="button" data-toggle="collapse" data-target="#navberNavDropdown" aria-controls="navberNavDropdown" aria-expanded="false" aria-ladel="Toggle navigation">
+            <span class="navber-toggler-icon"></span>
+          </button>
+          <div class="collapse navber-collapse" id="navberNavDropdown">
+            <ul class="navber-nav ml-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+            <%= link_to "Home", user_path(current_user.id) %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Users", users_path %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Books", books_path %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path %>
+            </li>
+            <li class="nav-item">
+             <%= link_to "Log in", new_user_session_path %>
+            </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+     </header>
+    <main class="md-auto">
     <%= yield %>
+    </main>
+    <footer class="bg-white text-black pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

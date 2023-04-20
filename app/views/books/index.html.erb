@@ -1,10 +1,32 @@
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <% image_tag book.get_image %>
-  <% end %>
-  <p><%= image_tag 'sample_author1.jpg' %></p>
-  <p>Title: <%= book.title %></p>
-  <p>Opinion: <%= book.body %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'books/list', book: @book, user: @user %>
+    </div>
+    <div class="col-lg-8">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+            <% @books.each do |book| %>
+        <tbody>
+          <th>
+          <div>
+            <%= link_to book_path(book.id) do %>
+            <%#= image_tag book.get_image %>
+            <% end %>
+          <tb><%= image_tag book.user.get_profile_image(100,100) %></tb>
+          <tb><%= book.title %></tb>
+          <tb><%= book.body %></tb>
+        </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<% end %>
