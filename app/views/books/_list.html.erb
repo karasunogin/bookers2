@@ -4,7 +4,9 @@
   <h3>name <%= user.name %></h3>
   <h3>introduction </h3>
   <% if user == current_user %>
-  <p><%= link_to "プロフィール編集",edit_user_path(user) %></p>
+    <%= link_to edit_user_path(user), target: "_blank" do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
   <% end %>
 </div>
 
