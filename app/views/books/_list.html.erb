@@ -2,11 +2,13 @@
 <div>
   <%= image_tag user.get_profile_image(100,100) %>
   <h3>name <%= user.name %></h3>
-  <h3>introduction </h3>
+  <h3>introduction <%= user.introduction %></h3>
+    <div class="d-grid gap-2 col-6 mx-auto">
   <% if user == current_user %>
     <%= link_to edit_user_path(user), target: "_blank" do %>
-    <i class="fas fa-user-cog"></i>
+       <button class="btn btn-ontline-secondary btn-block"><i class="fas fa-user-cog"></i></button>
     <% end %>
+    </div>
   <% end %>
 </div>
 
