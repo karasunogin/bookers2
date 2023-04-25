@@ -24,37 +24,45 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-                <i class="fas fa-home" style="color: #ffffff;"></i>
-                <%= link_to "Home", user_path(current_user.id) %>
+                <%= link_to user_path(current_user.id), class:"text-light" do %>
+                <i class="fas fa-home"></i>Home
+                <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-users" style="color: #ffffff;"></i>
-              <%= link_to "Users", users_path %>
+              <%= link_to users_path, class:"text-light" do %>
+              <i class="fas fa-users"></i>Users
+              <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-book-open" style="color: #ffffff;"></i>
-              <%= link_to "Books", books_path %>
+              <%= link_to books_path, class:"text-light" do %>
+              <i class="fas fa-book-open"></i>Books
+              <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <%= link_to destroy_user_session_path, method: :delete, class:"text-light" do %>
+              <i class="fas fa-sign-in-alt"></i>Log out
+              <% end %>
             </li>
             <% else %>
             <li class="nav-item">
-              <i class="fas fa-home" style="color: #ffffff;"></i>
-              <%= link_to "Home", root_path %>
+              <%= link_to root_path, class:"text-light" do %>
+              <i class="fas fa-home" style="color: #ffffff;"></i>Home
+              <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-link" style="color: #ffffff;"></i>
-              <%= link_to "About", about_path %>
+              <%= link_to about_path, class:"text-light" do %>
+              <i class="fas fa-link" style="color: #ffffff;"></i>About
+              <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-user-plus" style="color: #ffffff;"></i>
-              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to new_user_registration_path, class:"text-light" do %>
+              <i class="fas fa-user-plus" style="color: #ffffff;"></i>Sign up
+              <% end %>
             </li>
             <li class="nav-item">
-              <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
-              <%= link_to "Log in", new_user_session_path %>
+              <%= link_to new_user_session_path, class:"text-light" do %>
+              <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>Log in
+              <% end %>
             </li>
             <% end %>
             </ul>
@@ -69,7 +77,7 @@
     <footer>
       <div class="container mt-5">
         <div class="row">
-          <div class="mx-a">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>

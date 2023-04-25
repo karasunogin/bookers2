@@ -6,22 +6,23 @@
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <table class="table table-hover table-inverse">
+      <table class="table">
         <thead>
           <tr>
             <th>image</th>
             <th>name</th>
-            <th colspan="3"></th>
+            <th></th>
           </tr>
         </thead>
-             <% @users.each do |user| %>
+        
         <tbody>
-          <th>
-          <tb><%= image_tag user.get_profile_image(100,100) %></tb>
-          <tb>><%= user.name %></tb>
-          <tb><%= link_to "show", user_path(user.id) %></tb>
+          <% @users.each do |user| %>
+          <tr>
+          <td><%= image_tag user.get_profile_image(100,100) %></td>
+          <td>><%= user.name %></td>
+          <td><%= link_to "show", user_path(user.id) %></td>
           <% end %>
-          </th>
+          </tr>
         </tbody>
       </table>
     </div>
