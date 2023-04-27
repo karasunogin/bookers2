@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @user = current_user
+    @user = @book.user #投稿した本の
     @book_new = Book.new
   end
 
